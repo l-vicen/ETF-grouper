@@ -11,7 +11,7 @@
             
 2. Apply financial analysis.
 
-        2.1 Cheack based on time frame inputed if asset is in bear or bull market;
+        2.1 Check based on time frame inputed if asset is in bear or bull market;
         2.2 Call standard KPIs;
 
 3. Interpret data from financial statements.
