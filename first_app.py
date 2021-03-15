@@ -1,4 +1,7 @@
+# Dependencies
+# [TODO]: Organize dependencies and each respective files
 import streamlit as st
+import constructor as builder
 import numpy as np
 import pandas as pd
 
@@ -10,6 +13,7 @@ st.markdown('> Are you looking for a quick way to skin and scam protfolio holdin
 # Step 1: Getting categorize input
 
 # [TODO]: Add category of type of portfolio: small cap, ..... & category date: a.k.a last time data was updated.
+
 st.markdown('**1. Please categorize the data being uploaded.**')
 provider = {1: "Blackrock", 2: "Vanguard", 3: "Other"}
 
@@ -18,6 +22,7 @@ def format_func(option):
 
 option = st.selectbox("Select option", options=list(provider.keys()), format_func=format_func)
 st.write(f"You selected option {option} called {format_func(option)}")
+
 
 # Step 2: Input data
 st.markdown('**2. Drag&Drop .csv file. You will be able to see the data frame and its dimensions.**')
@@ -38,7 +43,7 @@ if data is not None:
     
     # Constructor features start here
     # Step 3: Analyse
-    st.markdown('**3. Select the analysis that your **Quantitative** is supposed to do for you.**')
+    st.markdown('**3. Select the analysis that your Quant is supposed to do for you.**')
 
     manipulate = st.selectbox('How do you want to manipulate the dataframe?', ('Group data by', 'Sort', 'other...'))
     st.write('You selected:', manipulate)
@@ -53,8 +58,12 @@ if data is not None:
 
         if len(target_columns) > 0:
             desiredGrouping
+            customColumns = desiredGrouping.columns.tolist()
 
-
+            # Constructor feature 1
+            target = st.selectbox('Feel free to select any desired column to count the diffent values that each contain.', customColumns)   
+            countInsight = builder.count_attribute(builder.extract_target(desiredGrouping, customColumns, target))
+            countInsight
     
     # Step 3.1.2 Feature sort by desired input
     if manipulate == 'Sort':
@@ -68,13 +77,6 @@ if data is not None:
             sorted_df
 
 
-    
-
-
-
-
-
-    st.markdown('4. Results will be plotted.')
         
 
 
