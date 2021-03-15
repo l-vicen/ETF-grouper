@@ -1,8 +1,6 @@
 # Dependencies
 import pandas as pd
 
-# Constructor features 
-#
 # 1. Count number of different values
 def extract_target(dataframe, custom_column, target):
     index = custom_column.index(target)
@@ -10,4 +8,13 @@ def extract_target(dataframe, custom_column, target):
     return series
 
 def count_attribute(series):
-    return pd.value_counts(series)
+    counts = pd.value_counts(series)
+    return counts
+
+# 2. Specify insights
+def dive_deeper(counts):
+    countList = counts.keys()
+    return countList
+
+
+

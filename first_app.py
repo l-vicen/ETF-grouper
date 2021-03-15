@@ -1,9 +1,9 @@
 # Dependencies
 # [TODO]: Organize dependencies and each respective files
 import streamlit as st
-import constructor as builder
-import numpy as np
 import pandas as pd
+import constructor as builder
+import styling as yle
 
 # Sketch 
 st.title('your **Quant**')
@@ -17,10 +17,10 @@ st.markdown('> Are you looking for a quick way to skin and scam protfolio holdin
 st.markdown('**1. Please categorize the data being uploaded.**')
 provider = {1: "Blackrock", 2: "Vanguard", 3: "Other"}
 
-def format_func(option):
+def format_func(option):  
     return provider[option]
 
-option = st.selectbox("Select option", options=list(provider.keys()), format_func=format_func)
+option = st.selectbox("Select option", options = list(provider.keys()), format_func = format_func)
 st.write(f"You selected option {option} called {format_func(option)}")
 
 
@@ -60,10 +60,15 @@ if data is not None:
             desiredGrouping
             customColumns = desiredGrouping.columns.tolist()
 
-            # Constructor feature 1
+            # Feature 01: Constructor.py
             target = st.selectbox('Feel free to select any desired column to count the diffent values that each contain.', customColumns)   
             countInsight = builder.count_attribute(builder.extract_target(desiredGrouping, customColumns, target))
             countInsight
+
+            # Feature 02: Constructor.py
+            goDeep = st.selectbox('Want to go deeper in:', builder.dive_deeper(countInsight))
+            newDataframe = df.loc[df[target] == goDeep]
+            newDataframe
     
     # Step 3.1.2 Feature sort by desired input
     if manipulate == 'Sort':
