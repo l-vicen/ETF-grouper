@@ -5,7 +5,6 @@ import pandas as pd
 import seaborn as sns
 import constructor as builder
 import quantitative as quant
-import styling as yle
 
 # Sketch 
 st.title('your **Quant**')
@@ -73,6 +72,11 @@ if data is not None:
             goDeep = st.selectbox('Want to go deeper in:', builder.dive_deeper(countInsight))
             newDataframe = df.loc[df[target] == goDeep]
             newDataframe
+
+            # Feature TEST: QUANT API IMPORT
+            ticker = quant.chooseAsset("aapl")
+            get = quant.inform(ticker)
+            get
     
     # Step 3.1.2 Feature sort by desired input
     if manipulate == 'Sort':
