@@ -2,7 +2,9 @@
 # [TODO]: Organize dependencies and each respective files
 import streamlit as st
 import pandas as pd
+import seaborn as sns
 import constructor as builder
+import quantitative as quant
 import styling as yle
 
 # Sketch 
@@ -64,6 +66,8 @@ if data is not None:
             target = st.selectbox('Feel free to select any desired column to count the diffent values that each contain.', customColumns)   
             countInsight = builder.count_attribute(builder.extract_target(desiredGrouping, customColumns, target))
             countInsight
+
+            st.bar_chart(countInsight)
 
             # Feature 02: Constructor.py
             goDeep = st.selectbox('Want to go deeper in:', builder.dive_deeper(countInsight))
