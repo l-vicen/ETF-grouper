@@ -16,5 +16,10 @@ def dive_deeper(counts):
     countList = counts.keys()
     return countList
 
+def get_columns_options(dataframe):
+    myColumn = dataframe.columns.tolist()
+    return myColumn
 
-
+def get_column_values(dataframe, column):
+    key = dataframe[column].tolist()
+    return key

@@ -7,7 +7,7 @@ def chooseAsset(ticker):
     return asset
 
 def inform(asset):
-    #information = pd.DataFrame.from_dict(asset.info)
+    #information = pd.DataFrame(asset.info)
     information = asset.info
     return information
 
