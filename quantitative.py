@@ -10,6 +10,3 @@ def inform(asset):
     #information = pd.DataFrame(asset.info)
     information = asset.info
     return information
-
-
-

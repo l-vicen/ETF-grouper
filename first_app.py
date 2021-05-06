@@ -15,7 +15,7 @@ st.markdown('> Are you looking for a quick way to skin and scam protfolio holdin
 # Step 1: Getting categorize input
 # [TODO]: Add category of type of portfolio: small cap, ..... & category date: a.k.a last time data was updated.
 st.markdown('**1. Please categorize the data being uploaded.**')
-category = st.text_input('Please, categorize the data you will be uploading.', help = '')
+category = st.text_input('Please, categorize the data you will be uploading.', 'Invesco S&P 500 High Dividend Low Volatility ETF (SPHD)')
 date = st.date_input('Data is as recent as:')
 name = st.write('The data is:', category, date)
 
